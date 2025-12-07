@@ -50,24 +50,6 @@ public interface IPacienteService {
     PacienteDTO buscarPacientePorId(Long id) throws ServiceException;
 
     /**
-     * Busca pacientes por nombre
-     *
-     * @param nombre nombre o parte del nombre a buscar
-     * @return lista de pacientes que coinciden
-     * @throws ServiceException si hay error en la busqueda
-     */
-    List<PacienteDTO> buscarPacientesPorNombre(String nombre) throws ServiceException;
-
-    /**
-     * Busca pacientes por tipo de seguro medico
-     *
-     * @param tipoSeguro tipo de seguro a buscar
-     * @return lista de pacientes con ese tipo de seguro
-     * @throws ServiceException si hay error en la busqueda
-     */
-    List<PacienteDTO> buscarPacientesPorTipoSeguro(String tipoSeguro) throws ServiceException;
-
-    /**
      * Busca un paciente por su DNI
      *
      * @param dni documento de identificación
@@ -77,10 +59,34 @@ public interface IPacienteService {
     PacienteDTO buscarPacientePorDni(String dni) throws ServiceException;
 
     /**
+     * Busca pacientes por nombre
+     *
+     * @param nombre nombre o parte del nombre a buscar
+     * @param limit
+     * @param offset
+     * @return lista de pacientes que coinciden
+     * @throws ServiceException si hay error en la busqueda
+     */
+    List<PacienteDTO> buscarPacientesPorNombre(String nombre, int limit, int offset) throws ServiceException;
+
+    /**
+     * Busca pacientes por tipo de seguro medico
+     *
+     * @param tipoSeguro tipo de seguro a buscar
+     * @param limit
+     * @param offset
+     * @return lista de pacientes con ese tipo de seguro
+     * @throws ServiceException si hay error en la busqueda
+     */
+    List<PacienteDTO> buscarPacientesPorTipoSeguro(String tipoSeguro, int limit, int offset) throws ServiceException;
+
+    /**
      * Obtiene todos los pacientes registrados
      *
+     * @param limit
+     * @param offset
      * @return lista de todos los pacientes
      * @throws ServiceException si hay error al listar
      */
-    List<PacienteDTO> listarTodosPacientes() throws ServiceException;
+    List<PacienteDTO> listarTodosPacientes(int limit, int offset) throws ServiceException;
 }

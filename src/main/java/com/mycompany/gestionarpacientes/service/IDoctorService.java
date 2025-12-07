@@ -49,24 +49,6 @@ public interface IDoctorService {
     DoctorDTO buscarDoctorPorId(Long id) throws ServiceException;
 
     /**
-     * Busca doctores por nombre
-     *
-     * @param nombre nombre o parte del nombre a buscar
-     * @return lista de doctores que coinciden
-     * @throws ServiceException si hay error en la busqueda
-     */
-    List<DoctorDTO> buscarDoctoresPorNombre(String nombre) throws ServiceException;
-
-    /**
-     * Busca doctores por especialidad medica
-     *
-     * @param especialidad especialidad a buscar
-     * @return lista de doctores con esa especialidad
-     * @throws ServiceException si hay error en la busqueda
-     */
-    List<DoctorDTO> buscarDoctoresPorEspecialidad(String especialidad) throws ServiceException;
-
-    /**
      * Busca un doctor por su cedula profesional
      *
      * @param cedulaProfesional numero de cedula profesional
@@ -76,10 +58,34 @@ public interface IDoctorService {
     DoctorDTO buscarDoctorPorCedula(String cedulaProfesional) throws ServiceException;
 
     /**
+     * Busca doctores por nombre
+     *
+     * @param nombre nombre o parte del nombre a buscar
+     * @param limit
+     * @param offset
+     * @return lista de doctores que coinciden
+     * @throws ServiceException si hay error en la busqueda
+     */
+    List<DoctorDTO> buscarDoctoresPorNombre(String nombre, int limit, int offset) throws ServiceException;
+
+    /**
+     * Busca doctores por especialidad medica
+     *
+     * @param especialidad especialidad a buscar
+     * @param limit
+     * @param offset
+     * @return lista de doctores con esa especialidad
+     * @throws ServiceException si hay error en la busqueda
+     */
+    List<DoctorDTO> buscarDoctoresPorEspecialidad(String especialidad, int limit, int offset) throws ServiceException;
+
+    /**
      * Obtiene todos los doctores registrados
      *
+     * @param limit
+     * @param offset
      * @return lista de todos los doctores
      * @throws ServiceException si hay error al listar
      */
-    List<DoctorDTO> listarTodosDoctores() throws ServiceException;
+    List<DoctorDTO> listarTodosDoctores(int limit, int offset) throws ServiceException;
 }
