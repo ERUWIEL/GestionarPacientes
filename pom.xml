@@ -32,6 +32,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>24</maven.compiler.release>
-        <exec.mainClass>com.mycompany.gestionarpacientes.GestionarPacientes</exec.mainClass>
+        <exec.mainClass>com.mycompany.gestionarpacientes.App</exec.mainClass>
     </properties>
 </project>
