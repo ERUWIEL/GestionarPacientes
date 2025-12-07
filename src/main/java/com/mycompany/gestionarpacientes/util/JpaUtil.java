@@ -13,7 +13,7 @@ import jakarta.persistence.Persistence;
  */
 public class JpaUtil {
 
-    private static final String PERSISTENCE_UNIT = "CitasClinicasDB";
+    private static final String PERSISTENCE_UNIT = "RecetasClinicasPU";
 
     private static volatile EntityManagerFactory emf;
     private static final ThreadLocal<EntityManager> threadLocal = new ThreadLocal<>();

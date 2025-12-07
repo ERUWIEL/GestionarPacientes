@@ -1,6 +1,8 @@
 
 package com.mycompany.gestionarpacientes;
 
+import com.mycompany.gestionarpacientes.util.JpaUtil;
+
 /**
  *
  * @author gatog
@@ -8,6 +10,8 @@ package com.mycompany.gestionarpacientes;
 public class App {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        JpaUtil.getEntityManager();
+        System.out.println("iniciando y cerrando!");
+        JpaUtil.shutdown();
     }
 }
