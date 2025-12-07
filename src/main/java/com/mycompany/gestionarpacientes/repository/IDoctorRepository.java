@@ -18,7 +18,7 @@ public interface IDoctorRepository {
 
     Doctor buscarPorId(Long id) throws RepositoryException;
 
-    List<Doctor> listarPorNombre(String nombre) throws RepositoryException;
+    List<Doctor> listarPorNombre(String nombre, int limit, int offset) throws RepositoryException;
 
-    List<Doctor> listarPorEspecialidad(String especialidad) throws RepositoryException;
+    List<Doctor> listarPorEspecialidad(String especialidad, int limit, int offset) throws RepositoryException;
 }

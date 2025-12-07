@@ -18,7 +18,7 @@ public interface IPacienteRepository {
 
     Paciente buscarPorId(Long id) throws RepositoryException;
 
-    List<Paciente> listarPorNombre(String nombre) throws RepositoryException;
+    List<Paciente> listarPorNombre(String nombre, int limit, int offset) throws RepositoryException;
 
-    List<Paciente> listarPorTipoDeSeguro(String tipoSeguro) throws RepositoryException;
+    List<Paciente> listarPorTipoDeSeguro(String tipoSeguro, int limit, int offset) throws RepositoryException;
 }

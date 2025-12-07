@@ -66,7 +66,7 @@ public class DoctorRepository implements IDoctorRepository {
     }
 
     @Override
-    public List<Doctor> listarPorNombre(String nombre) throws RepositoryException {
+    public List<Doctor> listarPorNombre(String nombre, int limit, int offset) throws RepositoryException {
         try {
             String jpql = "SELECT d FROM Doctor d "
                     + "WHERE LOWER(d.nombre) LIKE LOWER(:nombre) "
@@ -74,6 +74,8 @@ public class DoctorRepository implements IDoctorRepository {
 
             TypedQuery<Doctor> query = entityManager.createQuery(jpql, Doctor.class);
             query.setParameter("nombre", "%" + nombre + "%");
+            query.setMaxResults(limit);
+            query.setFirstResult(offset);
 
             return query.getResultList();
         } catch (Exception ex) {
@@ -82,7 +84,7 @@ public class DoctorRepository implements IDoctorRepository {
     }
 
     @Override
-    public List<Doctor> listarPorEspecialidad(String especialidad) throws RepositoryException {
+    public List<Doctor> listarPorEspecialidad(String especialidad, int limit, int offset) throws RepositoryException {
         try {
             String jpql = "SELECT d FROM Doctor d "
                     + "WHERE LOWER(d.especialidad) LIKE LOWER(:especialidad) "
@@ -90,6 +92,8 @@ public class DoctorRepository implements IDoctorRepository {
 
             TypedQuery<Doctor> query = entityManager.createQuery(jpql, Doctor.class);
             query.setParameter("especialidad", "%" + especialidad + "%");
+            query.setMaxResults(limit);
+            query.setFirstResult(offset);
 
             return query.getResultList();
         } catch (Exception ex) {
