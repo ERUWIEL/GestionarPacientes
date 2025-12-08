@@ -101,4 +101,20 @@ public class PacienteRepository implements IPacienteRepository {
             throw new RepositoryException("listarPorTipoDeSeguro", "no fue posible listar los pacientes", ex);
         }
     }
+
+    @Override
+    public List<Paciente> listarTodos(int limit, int offset) throws RepositoryException {
+        try {
+            String jpql = "SELECT p FROM Paciente p "
+                    + "ORDER BY p.nombre ASC";
+
+            TypedQuery<Paciente> query = entityManager.createQuery(jpql, Paciente.class);
+            query.setMaxResults(limit);
+            query.setFirstResult(offset);
+
+            return query.getResultList();
+        } catch (Exception ex) {
+            throw new RepositoryException("listarTodos", "no fue posible listar los pacientes", ex);
+        }
+    }
 }

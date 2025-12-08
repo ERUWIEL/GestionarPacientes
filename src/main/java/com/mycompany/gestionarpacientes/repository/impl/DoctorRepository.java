@@ -100,4 +100,20 @@ public class DoctorRepository implements IDoctorRepository {
             throw new RepositoryException("listarPorEspecialidad", "no fue posible listar los doctores", ex);
         }
     }
+
+    @Override
+    public List<Doctor> listarTodos(int limit, int offset) throws RepositoryException {
+        try {
+            String jpql = "SELECT d FROM Doctor d "
+                    + "ORDER BY d.nombre ASC";
+
+            TypedQuery<Doctor> query = entityManager.createQuery(jpql, Doctor.class);
+            query.setMaxResults(limit);
+            query.setFirstResult(offset);
+
+            return query.getResultList();
+        } catch (Exception ex) {
+            throw new RepositoryException("listarTodos", "no fue posible listar los doctores", ex);
+        }
+    }
 }
